@@ -6,11 +6,13 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 11:44:46 by tnard             #+#    #+#             */
-/*   Updated: 2021/11/02 13:49:07 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2021/11/02 14:08:34 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_bzero(void *s,	int n)
+#include "libft.h"
+
+void	ft_bzero(void *s,	size_t n)
 {
 	int		i;
 	char	*c;
