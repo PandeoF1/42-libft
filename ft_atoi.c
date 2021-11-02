@@ -6,13 +6,13 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 11:44:42 by tnard             #+#    #+#             */
-/*   Updated: 2021/11/02 14:03:17 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2021/11/02 15:42:19 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int	result;
 	int	revert;

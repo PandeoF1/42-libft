@@ -6,19 +6,19 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 11:45:03 by tnard             #+#    #+#             */
-/*   Updated: 2021/11/02 14:11:03 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2021/11/02 15:27:13 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_memset(void *s, int c, size_t n)
+void	ft_memset(void *b, int c, size_t len)
 {
-	char	*ss;
-	int		count;
+	char		*ss;
+	size_t		count;
 
-	ss = s;
+	ss = b;
 	count = 0;
-	while (count <= n)
+	while (count <= len)
 		ss[count++] = c;
 }

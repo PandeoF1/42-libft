@@ -6,13 +6,13 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 11:44:53 by tnard             #+#    #+#             */
-/*   Updated: 2021/11/02 14:10:39 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2021/11/02 15:24:08 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(char c)
+int	ft_isdigit(int c)
 {
 	if (c <= '9' && c >= '0')
 		return (1);

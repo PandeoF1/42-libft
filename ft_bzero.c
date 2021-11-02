@@ -6,7 +6,7 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 11:44:46 by tnard             #+#    #+#             */
-/*   Updated: 2021/11/02 14:08:34 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2021/11/02 15:15:40 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_bzero(void *s,	size_t n)
 {
-	int		i;
-	char	*c;
+	size_t		i;
+	char		*c;
 
 	c = s;
 	i = 0;
