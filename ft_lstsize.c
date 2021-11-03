@@ -6,7 +6,7 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:26:34 by tnard             #+#    #+#             */
-/*   Updated: 2021/11/03 14:32:28 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2021/11/03 17:08:50 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,7 @@ int	ft_lstsize(t_list *lst)
 	while (lst)
 	{
 		n++;
-		if (lst->next)
-			lst->next = lst->next->next;
-		else
-			return (n);
+		lst = lst->next;
 	}
 	return (n);
 }

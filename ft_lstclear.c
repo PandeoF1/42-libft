@@ -6,13 +6,13 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:45:47 by tnard             #+#    #+#             */
-/*   Updated: 2021/11/03 15:38:01 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2021/11/03 17:04:15 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	t_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*t;
 	t_list	*tmp;
