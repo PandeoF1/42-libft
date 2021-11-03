@@ -6,9 +6,22 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 11:45:04 by tnard             #+#    #+#             */
-/*   Updated: 2021/11/02 16:45:44 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2021/11/03 07:38:37 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+char	*ft_strchr(const char *s, int c)
+{
+	char	p;
+
+	p = c;
+	while (++s)
+	{
+		if (*s == p)
+			return ((char *)s);
+		if (*s == '\0')
+			return (NULL);
+	}
+}
