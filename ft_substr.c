@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 11:45:01 by tnard             #+#    #+#             */
-/*   Updated: 2021/11/03 10:50:51 by tnard            ###   ########lyon.fr   */
+/*   Created: 2021/11/03 09:06:31 by tnard             #+#    #+#             */
+/*   Updated: 2021/11/03 10:56:41 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*d;
-	char	*s;
+	size_t	i;
+	size_t	a;
+	char	*ptr;
 
-	if (dst == src)
-		return (dst);
-	d = (char *)dst;
-	s = (char *)src;
-	if (d > s)
-	{
-		while (len--)
-			*(d + len) = *(s + len);
-		return (dst);
-	}
-	while (len--)
-		*d++ = *s++;
-	return (dst);
+	i = -1;
+	a = 0;
+	ptr = malloc(sizeof(char *) * (1 + len));
+	if (!ptr)
+		return (NULL);
+	while (s[++i])
+		if (i >= start && a < len)
+			ptr[a++] = s[i];
+	ptr[a] = '\0';
+	return (ptr);
 }

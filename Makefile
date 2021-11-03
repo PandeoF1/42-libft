@@ -6,38 +6,42 @@
 #    By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 12:16:46 by tnard             #+#    #+#              #
-#    Updated: 2021/11/02 12:16:59 by tnard            ###   ########lyon.fr    #
+#    Updated: 2021/11/03 13:53:25 by tnard            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-SOURCE	= srcs/
-SRCS    = ft_destroy.c ft_search.c ft_dict_check.c ft_clear_rush.c ft_init.c ft_parse.c ft_putchar.c ft_putstr.c ft_split.c ft_strcmp.c ft_strcpy.c ft_strdup.c ft_strlen.c ft_strncpy.c main.c ft_print_litteral_nu.c
-OBJS	= ${addprefix ${SOURCE},${SRCS:.c=.o}}
-HEAD	= includes
-CC		= gcc
-CFLAGS	= -Wall -Werror -Wextra
-NAME	= libft
-NORMINETTE = norminette
-NORMOBJS	= ${addprefix ${SOURCE},${SRCS}}
+SRCS    = ft_putnbr_fd.c ft_putendl_fd.c ft_putchar_fd.c ft_putstr_fd.c ft_striteri.c ft_strmapi.c ft_itoa.c ft_split.c ft_substr.c ft_strtrim.c ft_strjoin.c ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c ft_strchr.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_tolower.c ft_toupper.c ft_memccpy.c ft_strdup.c ft_calloc.c
 
-.c.o:
-			${CC} ${CFLAGS} -I ${HEAD} -c $< -o ${<:.c=.o}
+NAME = libft.a
 
-${NAME}:	${OBJS}
-			gcc ${CFLAGS} $^ -o $@
+OBJS_DIR = objs/
+OBJS = $(SRCS:.c=.o)
+OBJECTS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJS))
 
-all :		${NAME}
+OBJSB = $(SRCSB:.c=.o)
+OBJECTS_BONUS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJSB))
+
+CC = clang
+
+CC_FLAGS = -Wall -Wextra -Werror
+
+$(OBJS_DIR)%.o : %.c libft.h
+	@mkdir -p $(OBJS_DIR)
+	@echo "Compiling: $<"
+	@clang $(CC_FLAGS) -c $< -o $@
+
+$(NAME): $(OBJECTS_PREFIXED)
+	@ar r $(NAME) $(OBJECTS_PREFIXED)
+	@echo "Libft Done !"
+
+all: $(NAME)
 
 clean:
-			rm -f ${OBJS}
+	rm -rf $(OBJS_DIR)
 
-fclean:
-			rm -f ${OBJS}
-			rm -f ${NAME}
+fclean: clean
+	rm -f $(NAME)
 
-norm:
-			${NORMINETTE} ${NORMOBJS}
-
-re:			fclean all clean
+re: fclean all
 
 .PHONY:		all clean fclean re norm

@@ -6,7 +6,7 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 11:44:42 by tnard             #+#    #+#             */
-/*   Updated: 2021/11/02 15:42:19 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2021/11/03 08:36:10 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,26 @@
 
 int	ft_atoi(const char *str)
 {
-	int	result;
-	int	revert;
-	int	n;
+	long	i;
+	long	nbr;
+	int		revert;
 
-	result = 0;
-	n = 0;
-	revert = 1;
-	while ((str[n] >= 9 && str[n] <= 13) || str[n] == ' ')
-		n++;
-	while (str[n] == '-' || str[n] == '+')
-		if (str[n++] == '-')
-			revert *= -1;
-	result = 0;
-	while (str[n] >= '0' && str[n] <= '9')
-		result = result * 10 + str[n++] - '0';
-	return (result * revert);
+	i = 0;
+	nbr = 0;
+	revert = 0;
+	while (str[i] != '\0' && (str[i] == 32 || str[i] == '\t' || str[i] == '\n'
+			|| str[i] == '\r' || str[i] == '\v' || str[i] == '\f'))
+		i++;
+	if (str[i] != '\0' && str[i] == '-')
+	{
+		revert = 1;
+		i++;
+	}
+	else if (str[i] == '+')
+		i++;
+	while (str[i] != '\0' && ft_isdigit(str[i]))
+		nbr = (nbr * 10) + (str[i++] - '0');
+	if (revert == 1)
+		return (-nbr);
+	return (nbr);
 }
