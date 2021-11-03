@@ -6,7 +6,7 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 09:06:31 by tnard             #+#    #+#             */
-/*   Updated: 2021/11/03 10:56:41 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2021/11/03 16:53:31 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	i = -1;
 	a = 0;
-	ptr = malloc(sizeof(char *) * (1 + len));
+	ptr = malloc(sizeof(char) * (1 + len));
 	if (!ptr)
 		return (NULL);
 	while (s[++i])

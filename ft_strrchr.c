@@ -6,7 +6,7 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 11:45:11 by tnard             #+#    #+#             */
-/*   Updated: 2021/11/03 08:49:58 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2021/11/03 16:10:02 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ char	*ft_strrchr(const char *s, int c)
 	ss = 0;
 	while (s[i])
 	{
-		if (s[i] == c)
+		if (s[i] == (const char)c)
 			ss = (char *)(s + i);
 		i++;
 	}
-	if (s[i] == c)
+	if (s[i] == (const char)c)
 		ss = (char *)(s + i);
 	return (ss);
 }

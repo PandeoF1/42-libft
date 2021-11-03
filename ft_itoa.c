@@ -6,7 +6,7 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 11:09:19 by tnard             #+#    #+#             */
-/*   Updated: 2021/11/03 13:18:06 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2021/11/03 16:58:01 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static void	ft_strreverse(char *str)
 	}
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa(int n) // a faire
 {
 	int		i;
 	int		tmp;
@@ -73,7 +73,9 @@ char	*ft_itoa(int n)
 		return (ft_strdup("0"));
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
-	ptr = malloc(sizeof(char *) * ft_int_len(n));
+	ptr = malloc(sizeof(char) * ft_int_len(n) + 1);
+	if (!ptr)
+		return (NULL);
 	if (n < 0)
 	{
 		tmp = n * -1;
@@ -85,6 +87,6 @@ char	*ft_itoa(int n)
 		tmp /= 10;
 	}
 	ft_strreverse(ptr);
-	ptr[i] = '\0';
+	ptr[i + 1] = '\0';
 	return (ptr);
 }
