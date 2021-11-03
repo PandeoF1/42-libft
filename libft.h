@@ -6,7 +6,7 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 16:02:04 by tnard             #+#    #+#             */
-/*   Updated: 2021/11/03 13:55:36 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2021/11/03 14:53:55 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,11 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+t_list	*ft_lstnew(void *content);
+void	ft_lstadd_front(t_list **alst, t_list *new);
+int		ft_lstsize(t_list *lst);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstadd_front(t_list **alst, t_list *new);
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
+void	t_lstclear(t_list **lst, void (*del)(void *));
 #endif
