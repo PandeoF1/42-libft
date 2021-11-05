@@ -6,7 +6,7 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 11:45:05 by tnard             #+#    #+#             */
-/*   Updated: 2021/11/03 07:29:21 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2021/11/05 13:36:46 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t dstsize)
 	while (dest[destlen])
 		destlen++;
 	i = 0;
-	while (src[i] && destlen + i < (dstsize - 1))
+	while (src[i] && destlen + i < (dstsize - 1)) // ! potential segfault inver condition
 	{
 		dest[i + destlen] = src[i];
 		i++;
