@@ -6,7 +6,7 @@
 #    By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 12:16:46 by tnard             #+#    #+#              #
-#    Updated: 2021/11/05 13:20:28 by tnard            ###   ########lyon.fr    #
+#    Updated: 2021/12/09 12:32:42 by tnard            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,28 +30,27 @@ CC = gcc
 CC_FLAGS = -Wall -Wextra -Werror
 
 $(OBJS_DIR)%.o : %.c libft.h
-	mkdir -p $(OBJS_DIR)
-	mkdir -p $(OBJS_DIR)/other
-	echo "Compil: $<"
+	@mkdir -p $(OBJS_DIR)
+	@mkdir -p $(OBJS_DIR)/other
 	$(CC) $(CC_FLAGS) -c $< -o $@
 
 $(NAME): $(OBJECTS_PREFIXED)
 	ar r $(NAME) $(OBJECTS_PREFIXED)
-	echo "Libft.a compiled !"
+	@echo "Libft.a compiled !"
 
 all: $(NAME)
 
 clean:
-	rm -rf $(OBJS_DIR)
+	@rm -rf $(OBJS_DIR)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 bonus: $(OBJECTS_BONUS_PREFIXED)
-	ar r $(NAME) $(OBJECTS_BONUS_PREFIXED)
+	@ar r $(NAME) $(OBJECTS_BONUS_PREFIXED)
 	
 other: $(OBJECTS_OTHER_PREFIXED)
-	ar r $(NAME) $(OBJECTS_OTHER_PREFIXED)
+	@ar r $(NAME) $(OBJECTS_OTHER_PREFIXED)
 
 re: fclean all
 
