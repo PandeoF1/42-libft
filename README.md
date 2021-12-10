@@ -18,7 +18,7 @@
 
 ## Tools :
  > - [norminette](https://github.com/42School/norminette) <br />
- > - [Makefile](https://nicomedes.assistedcoding.eu/#/app/makefilegen) <br />
+ > - [Makefile](https://github.com/PandeoF1/makefile) <br />
  > - [libt-unit-test](https://github.com/alelievr/libft-unit-test) <br />
 
 ## (づ｡◕‿‿◕｡)づ :
