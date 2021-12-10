@@ -6,7 +6,7 @@
 #    By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 12:16:46 by tnard             #+#    #+#              #
-#    Updated: 2021/12/09 15:54:14 by tnard            ###   ########lyon.fr    #
+#    Updated: 2021/12/10 11:07:10 by tnard            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,9 +42,8 @@ $(OBJS_DIR)%.o : %.c libft.h
 	@printf	"\033[2K\r${BLU}[BUILD - $(NAME)]${RST} '$<' $(END)"
 
 $(NAME): $(OBJECTS_PREFIXED)
-	@printf "\n"
-	@ar r $(NAME) $(OBJECTS_PREFIXED)
-	@echo "\033[0;32m[END]\033[0m $(NAME)"
+	@ar r $(NAME) $(OBJECTS_PREFIXED) >/dev/null 2>&1 &
+	@printf "\033[2K\r\033[0;32m[END]\033[0m $(NAME)$(END)"
 
 all: $(NAME)
 
@@ -55,10 +54,10 @@ fclean: clean
 	@rm -f $(NAME)
 
 bonus: $(OBJECTS_BONUS_PREFIXED)
-	@ar r $(NAME) $(OBJECTS_BONUS_PREFIXED)
+	@ar r $(NAME) $(OBJECTS_BONUS_PREFIXED) >/dev/null 2>&1 &
 	
 other: $(OBJECTS_OTHER_PREFIXED)
-	@ar r $(NAME) $(OBJECTS_OTHER_PREFIXED)
+	@ar r $(NAME) $(OBJECTS_OTHER_PREFIXED) >/dev/null 2>&1 &
 
 re: fclean all
 
