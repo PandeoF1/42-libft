@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_splitdel.c                                      :+:      :+:    :+:   */
+/*   ft_lstpush_front.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/07 03:22:59 by tnard             #+#    #+#             */
-/*   Updated: 2022/04/07 03:25:40 by tnard            ###   ########lyon.fr   */
+/*   Created: 2022/04/07 07:41:05 by tnard             #+#    #+#             */
+/*   Updated: 2022/04/07 07:56:49 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-int	ft_splitdel(char ***split)
+t_list	*ft_lstpush_front(t_list **lst, t_list *item)
 {
-	char	**str;
-	int		i;
-
-	i = 0;
-	str = *split;
-	while (*str)
-	{
-		ft_strdel(str);
-		i++;
-		str = &(*split)[i];
-	}
-	ft_memdel((void **)split);
-	return (0);
+	item->next = *lst;
+	*lst = item;
+	return (item);
 }

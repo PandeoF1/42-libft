@@ -20,6 +20,7 @@
  > - [norminette](https://github.com/42School/norminette) <br />
  > - [Makefile](https://github.com/PandeoF1/makefile) <br />
  > - [libft-unit-test](https://github.com/alelievr/libft-unit-test) <br />
+ > - [Some function come from Chr0nos](https://github.com/Chr0nos/libft)
 
 ## (づ｡◕‿‿◕｡)づ :
 ```

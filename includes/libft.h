@@ -6,7 +6,7 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 16:02:04 by tnard             #+#    #+#             */
-/*   Updated: 2022/04/07 03:56:50 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2022/04/07 07:59:01 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,11 @@ void	ft_putnbr_fd(int n, int fd);
 typedef struct s_list
 {
 	void			*content;
+	size_t			content_size;
 	struct s_list	*next;
-}	t_list;
+}				t_list;
 
-t_list	*ft_lstnew(void *content);
+/*t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **alst, t_list *new);
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
@@ -68,10 +69,61 @@ void	ft_lstadd_back(t_list **alst, t_list *new);
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));*/
 
+char	**ft_lststrmap(t_list *lst);
+char	**ft_lststrtotab(t_list *lst);
+void	ft_lstremove(t_list **item, t_list **root, void (*f)(void *));
+void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
+void	ft_lstdel(t_list **ast, void (*del)(void *, size_t));
+void	ft_lstinsert(t_list **parent, t_list *item);
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem));
+void	ft_lstsort(t_list **lst, int (*cmp)(t_list *, t_list *));
+void	ft_lstpush_sort(t_list **lst, t_list *item,
+			int (*cmp)(t_list *, t_list *));
+void	*ft_lstforeach(t_list *lst, void *userdata,
+			void (*f)(void *, size_t, void *));
+void	*ft_lstforeachi(t_list *lst, void *userdata,
+			void (*f)(size_t, void *, size_t, void *));
+void	ft_lstforeachi_suffix(t_list *lst, void (*f)(size_t, size_t, void *));
+void	ft_lstforeach_suffix(t_list *lst, void (*f)(void *));
+void	ft_lstpulverisator(void *x, size_t size);
+int		ft_lststrcmp(t_list *a, t_list *b);
+t_list	*ft_lstnew(const void *content, size_t content_size);
+t_list	*ft_lstnewstr(const char *str);
+t_list	*ft_lstnewlink(void *content, size_t content_size);
+t_list	*ft_lstadd(t_list **alst, t_list *new);
+t_list	*ft_lstparent(t_list *lst, t_list *item);
+t_list	*ft_lstswap(t_list *root, t_list *a, t_list *b);
+t_list	*ft_lstlast(t_list *lst);
+t_list	*ft_lstpush_back(t_list **lst, t_list *item);
+t_list	*ft_lstpush_front(t_list **lst, t_list *item);
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+t_list	*ft_lstdup(t_list *lst, void *(*f)(void *));
+t_list	*ft_lstndup(t_list *lst, size_t n, void *(*f)(void *));
+t_list	*ft_lstat(t_list *lst, int p);
+t_list	*ft_lstdupsort(t_list *lst, int (*cmp)(t_list *, t_list *));
+t_list	*ft_lstmin(t_list *lst, int (*cmp)(t_list *, t_list *));
+t_list	*ft_lstnewi(const void *content, const size_t content_size);
+size_t	ft_lststrlen(t_list *lst);
+size_t	ft_lstsize(t_list *lst);
+int		ft_lstissort(t_list *lst, int (*cmp)(t_list *, t_list *));
+int		ft_lstunlink(t_list **lst, t_list *item);
+int		ft_lstissort_circular(t_list *lst, int (*cmp)(t_list *, t_list *));
+t_list	*ft_lstsearch(t_list *lst, t_list *item,
+			int (*cmp)(t_list *, t_list *));
+void	**ft_lstqsort(t_list *lst, int (*cmp)(void *, void *));
+void	**ft_lsttotab_size(t_list *lst, const size_t size);
+void	**ft_lsttotab(t_list *lst);
+void	ft_lsttotab_load(t_list *lst, void **tab, size_t n);
+void	ft_lsttotab_loadrev(t_list *lst, void **tab, size_t n);
+void	ft_crash(void);
+void	ft_quicksort(void **tab, size_t start, size_t end,
+			int (*cmp)(void *, void *));
+int		ft_strcmp(const char *s1, const char *s2);
 // Custom
 
+void	*ft_memdup(const void *src, size_t size);
 float	ft_atof(const char *str);
 float	ft_abs(float nb);
 float	ft_average(int nb1, int nb2, float p);
@@ -85,7 +137,8 @@ int		ft_mod(int a, int b);
 int		ft_occur(const char *str, const char c);
 int		ft_pow(float nb, int pow);
 void	ft_putendl(char const *s);
-int		ft_splitdel(char ***split);
+int		ft_free_tab_char(char ***split);
+void	ft_free_tab_int(int **tab, int size);
 int		ft_splitlen(char **split);
 float	ft_sq(float nb);
 int		ft_sqrt(int nb);
@@ -94,5 +147,8 @@ char	*ft_strnjoin(char *s1, char *s2, int n);
 char	*ft_strnjoinf(char *s1, char *s2, int n);
 void	ft_swap(int *a, int *b);
 void	ft_putchar(char c);
+void	ft_sort_tab(int *tab, int size);
+void	ft_rev_sort_tab(int *tab, int size);
+char	*ft_strcapitalize(char *str);
 
 #endif

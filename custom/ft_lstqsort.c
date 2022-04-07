@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstqsort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 14:45:47 by tnard             #+#    #+#             */
-/*   Updated: 2022/04/07 03:09:50 by tnard            ###   ########lyon.fr   */
+/*   Created: 2022/04/07 07:41:16 by tnard             #+#    #+#             */
+/*   Updated: 2022/04/07 07:56:55 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
-{
-	t_list	*t;
-	t_list	*tmp;
+/*
+** convert a unsorted chained list into a sorted void** array
+** using a quicksort algorythm method.
+** the returned array will have a NULL at the end.
+*/
 
-	t = *lst;
-	while (t)
-	{
-		tmp = t->next;
-		ft_lstdelone(t, del);
-		t = tmp;
-	}
-	*lst = NULL;
+void	**ft_lstqsort(t_list *lst, int (*cmp)(void *, void *))
+{
+	const size_t		size = ft_lstsize(lst);
+	void				**tab;
+
+	tab = ft_lsttotab_size(lst, size);
+	if (!tab)
+		return (NULL);
+	ft_quicksort(tab, 0, size - 1, cmp);
+	return (tab);
 }

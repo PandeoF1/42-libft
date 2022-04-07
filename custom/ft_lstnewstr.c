@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_lstnewstr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 15:06:02 by tnard             #+#    #+#             */
-/*   Updated: 2022/04/07 03:09:50 by tnard            ###   ########lyon.fr   */
+/*   Created: 2022/04/07 07:40:48 by tnard             #+#    #+#             */
+/*   Updated: 2022/04/07 07:56:43 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+t_list	*ft_lstnewstr(const char *str)
 {
-	while (lst)
-	{
-		f(lst->content);
-		lst = lst->next;
-	}
+	return (ft_lstnew(str, ft_strlen(str) + 1));
 }

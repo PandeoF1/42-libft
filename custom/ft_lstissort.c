@@ -1,42 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstissort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 15:10:32 by tnard             #+#    #+#             */
-/*   Updated: 2022/04/07 03:09:50 by tnard            ###   ########lyon.fr   */
+/*   Created: 2022/04/07 07:40:08 by tnard             #+#    #+#             */
+/*   Updated: 2022/04/07 07:56:14 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+int	ft_lstissort(t_list *lst, int (*cmp)(t_list *, t_list *))
 {
-	t_list	*new;
-	t_list	*tmp;
-	t_list	*begin;
-
-	if (lst)
+	if (!lst)
+		return (1);
+	while (lst->next)
 	{
-		tmp = lst;
-		begin = ft_lstnew(f(tmp->content));
-		if (!begin)
-			return (NULL);
-		tmp = tmp->next;
-		while (tmp)
-		{
-			new = ft_lstnew(f(tmp->content));
-			if (!new)
-			{
-				ft_lstclear(&begin, del);
-				return (NULL);
-			}
-			ft_lstadd_back(&begin, new);
-			tmp = tmp->next;
-		}
-		return (begin);
+		if (cmp(lst, lst->next) > 0)
+			return (0);
+		lst = lst->next;
 	}
-	return (NULL);
+	return (1);
 }
