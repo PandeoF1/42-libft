@@ -16,7 +16,7 @@
 
 ---
 ## Description :
-At the first, everything was made by me (For the evaluation), but i have add some list function from [Chr0nos](https://github.com/Chr0nos/libft) repos. <br \>
+At the first, everything was made by me (For the evaluation), but i have add some list function from [Chr0nos](https://github.com/Chr0nos/libft) repos. <br />
 I try to made a nice custom libft to be more productive on other project.
 
 
